@@ -91,6 +91,7 @@
 /* Components: Cards */
 [data-theme="light"] .case-card,
 [data-theme="light"] .experience-card,
+[data-theme="light"] .approach-card,
 [data-theme="light"] .bento-tile {
     border: 1px solid var(--border-glow);
     background: var(--bg-card);
@@ -98,6 +99,7 @@
 }
 [data-theme="light"] .case-card:hover,
 [data-theme="light"] .experience-card:hover,
+[data-theme="light"] .approach-card:hover,
 [data-theme="light"] .bento-tile:hover {
     border-color: var(--border-glow-hover);
     box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
@@ -825,6 +827,42 @@ section {
     gap: 32px;
 }
 
+/* ============================================
+   APPROACH CARDS
+   ============================================ */
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.approach-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--border-radius);
+    padding: 36px;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+    box-shadow: var(--card-shadow);
+}
+
+.approach-card:hover {
+    border-color: var(--border-glow-hover);
+    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
+    transform: translateY(-4px);
+}
+
+.approach-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.approach-card h4 {
+    margin-bottom: 12px;
+}
+
+.approach-card p {
+    font-size: 0.9rem;
+}
 
 /* ============================================
    EXPERIENCE CARDS
