@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Disallow: /assets/ajay_sharma_pm_resume.pdf

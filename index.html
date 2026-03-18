@@ -13,12 +13,26 @@
     <meta property="og:type" content="website">
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230A0F0D'/%3E%3Ctext x='32' y='38' text-anchor='middle' fill='%2300E5A0' font-family='sans-serif' font-weight='600' font-size='24'%3EAS%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="preload" href="assets/ajay.webp" as="image">
     <link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2WKBKN1TPZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2WKBKN1TPZ');
+</script>
 </head>
 
 <body>
-
-    <!-- ========== NAVBAR ========== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <a href="index.html" class="nav-logo"><span>AS</span></a>
@@ -54,8 +68,6 @@
     </nav>
 
     <main>
-
-        <!-- ========== HERO ========== -->
         <section class="hero" id="hero">
             <canvas id="hero-canvas"></canvas>
             <div class="container">
@@ -74,7 +86,7 @@
                             AI and product operations. HelloPM Fellow.</p>
                         <div class="btn-group">
                             <a href="work.html" class="btn btn--primary">See My Work →</a>
-                            <a href="assets/ajay_sharma_pm_resume.pdf" target="_blank" rel="noopener"
+                            <a href="assets/ajay_sharma_pm_resume.pdf" target="_blank" rel="noopener noreferrer"
                                 class="btn btn--secondary">Download
                                 Resume</a>
                         </div>
@@ -334,8 +346,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== METRICS STRIP ========== -->
         <section class="metrics-strip">
             <div class="container">
                 <div class="metrics-grid">
@@ -358,8 +368,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== FEATURED WORK ========== -->
         <section id="work">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -386,7 +394,7 @@
                                     architecture.</p>
                                 <span class="metric-pill">&#10022; $62M–$158M annual opportunity quantified</span>
                                 <div class="btn-group" style="margin-top: 20px;">
-                                    <a href="https://signal.protonaiagents.com/" target="_blank" rel="noopener"
+                                    <a href="https://signal.protonaiagents.com/" target="_blank" rel="noopener noreferrer"
                                         class="btn btn--primary">View Prototype &#8594;</a>
                                     <a href="#" class="btn btn--secondary"
                                         style="opacity: 0.5; pointer-events: none; cursor: default;">View PRD
@@ -437,7 +445,7 @@
                                     part that builds actual presence.</p>
                                 <span class="metric-pill">&#10022; 90% daily workflow time reduced</span>
                                 <div class="btn-group" style="margin-top: 20px;">
-                                    <a href="https://linkedinengage.protonaiagents.com/" target="_blank" rel="noopener"
+                                    <a href="https://linkedinengage.protonaiagents.com/" target="_blank" rel="noopener noreferrer"
                                         class="btn btn--primary">View Live Product &#8594;</a>
                                     <a href="#" class="btn btn--secondary"
                                         style="opacity: 0.5; pointer-events: none; cursor: default;">View PRD
@@ -501,7 +509,7 @@
                                 <span class="metric-pill">&#10022; 10% projected lift in repeat orders</span>
                                 <div class="btn-group" style="margin-top: 20px;">
                                     <a href="https://smartcartrecommendations.protonaiagents.com/" target="_blank"
-                                        rel="noopener" class="btn btn--primary">View Live Product &#8594;</a>
+                                        rel="noopener noreferrer" class="btn btn--primary">View Live Product &#8594;</a>
                                     <a href="#" class="btn btn--secondary"
                                         style="opacity: 0.5; pointer-events: none; cursor: default;">View PRD
                                         &#8594;</a>
@@ -539,8 +547,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== EXPERIENCE ========== -->
         <section id="experience">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -585,8 +591,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== SKILLS & TOOLS ========== -->
         <section id="skills">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -650,8 +654,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== ABOUT STRIP ========== -->
         <section id="about-strip">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -659,7 +661,10 @@
                 </div>
                 <div class="about-strip fade-in-up">
                     <div class="portrait-placeholder">
-                        <img src="assets/ajay.jpg" alt="Ajay Sharma" class="portrait">
+                        <picture>
+                            <source srcset="assets/ajay.webp" type="image/webp">
+                            <img src="assets/ajay.jpg" alt="Ajay Sharma" class="portrait" width="220" height="220" loading="eager" decoding="async">
+                        </picture>
                     </div>
                     <div class="about-strip-content">
                         <h2>The background looks unconventional. The direction is deliberate.</h2>
@@ -673,8 +678,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== FAQ ========== -->
         <section id="faq">
             <div class="container">
                 <div class="section-header fade-in-up">
@@ -738,19 +741,17 @@
                 </div>
             </div>
         </section>
-
-        <!-- ========== CONTACT CTA ========== -->
         <section id="contact-cta">
             <div class="container">
                 <div class="contact-cta fade-in-up">
                     <h2>If you're building AI products, let's talk.</h2>
                     <p>Open to APM and PM roles at AI-first startups and product-led SaaS companies.</p>
                     <div class="btn-group">
-                        <a href="mailto:sharma.ajay.jobs@gmail.com" class="btn btn--primary"
+                        <a href="#" class="contact-email-link btn btn--primary"
                             title="sharma.ajay.jobs@gmail.com">Email Me →</a>
-                        <a href="https://github.com/reagleai/" target="_blank" rel="noopener"
+                        <a href="https://github.com/reagleai/" target="_blank" rel="noopener noreferrer"
                             class="btn btn--secondary">GitHub →</a>
-                        <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener"
+                        <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener noreferrer"
                             class="btn btn--secondary">Connect on LinkedIn →</a>
                     </div>
                 </div>
@@ -758,8 +759,6 @@
         </section>
 
     </main>
-
-    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
@@ -768,9 +767,9 @@
                     <span class="footer-tagline">AI Insider | Product Builder | Open to PM roles.</span>
                 </div>
                 <div class="footer-links">
-                    <a href="mailto:sharma.ajay.jobs@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/reagleai/" target="_blank" rel="noopener">GitHub</a>
+                    <a href="#" class="contact-email-link">Email</a>
+                    <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/reagleai/" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
             <div class="footer-credit">

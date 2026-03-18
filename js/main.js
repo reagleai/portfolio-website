@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     setActiveNavLink();
     initLifecycleDiagram();
+    initEmailObfuscation();
 });
 
 /* ============================================
@@ -157,6 +158,14 @@ function initHeroCanvas() {
         animId = requestAnimationFrame(draw);
     }
 
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            cancelAnimationFrame(animId);
+        } else {
+            draw();
+        }
+    });
+
     resize();
     createParticles();
     draw();
@@ -189,6 +198,11 @@ function initScrollAnimations() {
     const elements = document.querySelectorAll('.fade-in-up');
     if (!elements.length) return;
 
+    if (!window.IntersectionObserver) {
+        elements.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -210,6 +224,11 @@ function initScrollAnimations() {
 function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
+
+    if (!window.IntersectionObserver) {
+        counters.forEach(el => animateCounter(el));
+        return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -310,16 +329,20 @@ function initLifecycleDiagram() {
         setTimeout(() => startPulseAnimation(svg), (maxIdx + 1) * 200 + 400);
     }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                revealSequentially();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.05 });
+    if (!window.IntersectionObserver) {
+        revealSequentially();
+    } else {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revealSequentially();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
 
-    observer.observe(svg);
+        observer.observe(svg);
+    }
 
     // Tooltips
     const VB_W = 1400, TIP_W = 260, TIP_H = 28, TIP_PAD = 8;
@@ -465,5 +488,20 @@ function initThemeToggle() {
             html.setAttribute('data-theme', next);
             localStorage.setItem(STORAGE_KEY, next);
         });
+    });
+}
+
+/* ============================================
+   EMAIL OBFUSCATION
+   ============================================ */
+function initEmailObfuscation() {
+    document.querySelectorAll('.contact-email-link').forEach(el => {
+        const u = 'sharma.ajay.jobs';
+        const d = 'gmail.com';
+        el.href = 'mailto:' + u + '@' + d;
+        if (el.textContent.includes('gmail.com')) {
+            // Only replace text if it was originally showing the plain text email
+            el.textContent = u + '@' + d;
+        }
     });
 }
