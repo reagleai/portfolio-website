@@ -633,11 +633,12 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 100%;
 }
 
 .hero-visual svg {
     width: 100%;
-    max-width: 420px;
+    max-width: 530px;
     height: auto;
 }
 
@@ -1621,12 +1622,11 @@ section {
     }
 
     .hero-visual {
-        order: 2;
-        margin-top: 40px;
+        margin-top: 10px;
     }
 
     .hero-visual svg {
-        max-width: 300px;
+        max-width: 420px;
         width: 100%;
         height: auto;
     }
@@ -2012,8 +2012,7 @@ section {
     }
 
     .hero-visual {
-        order: 2;
-        margin-top: 40px;
+        margin-top: 10px;
     }
 
     .hero-visual svg {
