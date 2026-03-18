@@ -1621,12 +1621,14 @@ section {
     }
 
     .hero-visual {
-        order: 2;
-        margin-top: 40px;
+        order: -1;
+        margin-top: 0;
+        margin-bottom: 8px;
+        width: 100%;
     }
 
     .hero-visual svg {
-        max-width: 300px;
+        max-width: 100%;
         width: 100%;
         height: auto;
     }
@@ -1638,6 +1640,14 @@ section {
 
     .experience-grid {
         grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        gap: 16px;
+    }
+
+    .bento-grid {
+        gap: 16px;
     }
 
     .testimonials-grid {
@@ -1727,11 +1737,9 @@ section {
     }
 
     .hero-visual {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 360px;
-        margin: 0 auto;
+        order: -1;
+        width: 100%;
+        max-width: 100%;
     }
 
     .btn-group {
@@ -2012,12 +2020,14 @@ section {
     }
 
     .hero-visual {
-        order: 2;
-        margin-top: 40px;
+        order: -1;
+        margin-top: 0;
+        margin-bottom: 8px;
+        width: 100%;
     }
 
     .hero-visual svg {
-        max-width: 340px;
+        max-width: 100%;
         width: 100%;
         height: auto;
     }
@@ -2048,7 +2058,7 @@ section {
    ============================================ */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 60px;
+        --section-padding: 40px;
         --nav-height: 64px;
     }
 
@@ -2093,7 +2103,7 @@ section {
     .hero {
         min-height: auto;
         padding-top: calc(var(--nav-height) + 40px);
-        padding-bottom: 40px;
+        padding-bottom: 24px;
     }
 
     .hero-sub {
@@ -2107,6 +2117,14 @@ section {
     /* Grids */
     .experience-grid {
         grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        gap: 16px;
+    }
+
+    .bento-grid {
+        gap: 16px;
     }
 
     .approach-grid {
@@ -2148,7 +2166,7 @@ section {
    ============================================ */
 @media (max-width: 480px) {
     :root {
-        --section-padding: 48px;
+        --section-padding: 32px;
     }
 
     .container {
