@@ -3,9 +3,7 @@
    Design System & Global Styles
    ============================================ */
 
-/* ---- Fonts: Fontshare + Google ---- */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+/* ---- Fonts loaded via <link> in HTML head ---- */
 
 /* ============================================
    CSS CUSTOM PROPERTIES
@@ -347,9 +345,7 @@ p {
     padding: 0 24px;
 }
 
-.container--wide {
-    max-width: var(--container-wide);
-}
+
 
 section {
     padding: var(--section-padding) 0;
@@ -984,64 +980,7 @@ section {
     transform: translateY(-2px);
 }
 
-/* ============================================
-   TESTIMONIALS
-   ============================================ */
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
 
-.testimonial-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    padding: 36px;
-    backdrop-filter: blur(10px);
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
-    box-shadow: var(--card-shadow);
-}
-
-.testimonial-card:hover {
-    border-color: var(--border-glow-hover);
-    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
-}
-
-.testimonial-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--accent-dim);
-    border: 2px solid var(--border-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.testimonial-quote {
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    font-style: normal;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.testimonial-name {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-}
-
-.testimonial-title {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
 
 /* ============================================
    ABOUT STRIP
@@ -1074,12 +1013,7 @@ section {
     border: 1px solid var(--border-glow);
 }
 
-.portrait-initials {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent);
-}
+
 
 .about-strip-content h2 {
     font-size: clamp(1.5rem, 3vw, 2rem);
@@ -1191,96 +1125,7 @@ section {
 /* ============================================
    CONTACT FORM
    ============================================ */
-.contact-form {
-    max-width: 640px;
-    margin: 0 auto;
-}
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 14px 18px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius-sm);
-    color: var(--text-primary);
-    font-size: 0.95rem;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-    outline: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(0, 229, 160, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 140px;
-}
-
-.form-group select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A8A80' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
-}
-
-.form-group select option {
-    background: var(--bg-card);
-    color: var(--text-primary);
-}
-
-.form-note {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 16px;
-}
-
-.contact-pills {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.contact-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius-pill);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    transition: all var(--transition-base);
-}
-
-.contact-pill:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
 
 /* Contact — Minimal Layout */
 .contact-minimal {
@@ -1440,25 +1285,7 @@ section {
     color: var(--text-muted);
 }
 
-/* ============================================
-   COMING SOON STRIP (Work Page)
-   ============================================ */
-.coming-soon-strip {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    padding: 48px;
-    text-align: center;
-}
 
-.coming-soon-strip h3 {
-    margin-bottom: 12px;
-    color: var(--accent);
-}
-
-.coming-soon-strip p {
-    font-size: 0.9rem;
-}
 
 /* ============================================
    ABOUT PAGE HERO
@@ -1675,10 +1502,7 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+
 
     .about-strip {
         grid-template-columns: 1fr;
@@ -1773,9 +1597,7 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
+
 
     .bento-grid {
         grid-template-columns: 1fr;
@@ -1794,10 +1616,7 @@ section {
         height: 160px;
     }
 
-    .contact-pills {
-        flex-direction: column;
-        align-items: center;
-    }
+
 
     .footer-inner {
         flex-direction: column;
@@ -1968,24 +1787,9 @@ section {
     box-shadow: var(--card-shadow);
 }
 
-[data-theme=light] .coming-soon-strip {
-    box-shadow: var(--card-shadow);
-}
-
-[data-theme=light] .contact-pill {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
 [data-theme=light] .skill-pill {
     background: var(--bg-card);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-[data-theme=light] .form-group input,
-[data-theme=light] .form-group textarea,
-[data-theme=light] .form-group select {
-    background: var(--bg-card);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme=light] ::selection {
@@ -2174,6 +1978,38 @@ section {
         margin-top: 8px;
         opacity: 0.6;
     }
+
+    /* Footer stacks on tablet */
+    .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+
+    /* Bento single column on tablet portrait */
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-tile--wide {
+        grid-column: span 1;
+    }
+
+    /* Case card: text first, visual second */
+    .case-card-content {
+        order: 1;
+    }
+
+    .case-card-visual {
+        order: 2;
+    }
+
+    /* Hero pipeline SVG: bigger on mobile for readability */
+    .hero-visual svg {
+        max-width: 90vw;
+        width: 90vw;
+        min-width: 320px;
+    }
 }
 
 /* ============================================
@@ -2226,23 +2062,6 @@ section {
 
     .approach-card {
         padding: 20px;
-    }
-
-    /* Contact form */
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        font-size: 16px;
-        /* prevent iOS zoom */
-    }
-
-    .contact-pills {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .contact-pill {
-        text-align: center;
     }
 
     .lifecycle-title {

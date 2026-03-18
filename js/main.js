@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     setActiveNavLink();
     initLifecycleDiagram();
+    initEmailObfuscation();
 });
 
 /* ============================================
@@ -86,6 +87,8 @@ function initMobileMenu() {
    Lightweight animated dot-grid with connections
    ============================================ */
 function initHeroCanvas() {
+    if (window.innerWidth <= 768) return; // Prevent layout blocking render on mobile
+
     const canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
 
@@ -165,6 +168,20 @@ function initHeroCanvas() {
         resize();
         createParticles();
     });
+
+    // Pause canvas when tab is hidden to save CPU/GPU
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animId) {
+                cancelAnimationFrame(animId);
+                animId = null;
+            }
+        } else {
+            if (!animId) {
+                draw();
+            }
+        }
+    });
 }
 
 /* ============================================
@@ -189,6 +206,11 @@ function initScrollAnimations() {
     const elements = document.querySelectorAll('.fade-in-up');
     if (!elements.length) return;
 
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -210,6 +232,11 @@ function initScrollAnimations() {
 function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        counters.forEach(el => animateCounter(el));
+        return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -308,6 +335,11 @@ function initLifecycleDiagram() {
         }
         // Start pulse animation after nodes are revealed
         setTimeout(() => startPulseAnimation(svg), (maxIdx + 1) * 200 + 400);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        revealSequentially();
+        return;
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -465,5 +497,26 @@ function initThemeToggle() {
             html.setAttribute('data-theme', next);
             localStorage.setItem(STORAGE_KEY, next);
         });
+    });
+}
+
+/* ============================================
+   EMAIL OBFUSCATION
+   Assembles mailto: links at runtime so email
+   is not exposed in raw HTML source.
+   ============================================ */
+function initEmailObfuscation() {
+    const u = 'sharma.ajay.jobs';
+    const d = 'gmail.com';
+    const addr = u + '@' + d;
+
+    // Populate any link with class 'contact-email-link'
+    document.querySelectorAll('.contact-email-link').forEach(link => {
+        link.href = 'mailto:' + addr;
+        if (!link.textContent.trim() || link.textContent.trim() === 'Email') {
+            // Keep existing label like "Email"
+        } else {
+            link.textContent = addr;
+        }
     });
 }
