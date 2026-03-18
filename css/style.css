@@ -164,6 +164,51 @@
     opacity: 1 !important;
 }
 
+/* Product Management Pipeline Overrides */
+[data-theme="light"] .hero-pipeline-svg path[stroke-dasharray] {
+    stroke: var(--accent-bright) !important;
+    stroke-width: 1.5 !important;
+    opacity: 0.8 !important;
+}
+
+[data-theme="light"] .hero-pipeline-svg polygon {
+    fill: var(--accent-bright) !important;
+    opacity: 0.8 !important;
+    transform: scale(1.15);
+    transform-origin: center;
+}
+
+[data-theme="light"] .hero-pipeline-svg .pm-pulse {
+    fill: var(--accent-bright) !important;
+    r: 6 !important;
+}
+
+[data-theme="light"] .hero-pipeline-svg text.pm-label-1,
+[data-theme="light"] .hero-pipeline-svg text.pm-label-2,
+[data-theme="light"] .hero-pipeline-svg text.pm-label-3 {
+    fill: var(--text-muted) !important;
+    font-weight: 600 !important;
+    opacity: 0.9 !important;
+}
+
+[data-theme="light"] .pm-stage-3 path {
+    stroke: var(--accent-bright) !important;
+    opacity: 0.6 !important;
+}
+
+[data-theme="light"] .pm-bottom-annotation {
+    fill: var(--text-muted) !important;
+    opacity: 0.8 !important;
+    font-weight: 600 !important;
+}
+
+[data-theme="light"] .hero-pipeline-svg .pm-stage-1 text,
+[data-theme="light"] .hero-pipeline-svg .pm-stage-2 text,
+[data-theme="light"] .hero-pipeline-svg .pm-stage-3 text {
+    fill: var(--text-heading) !important;
+    font-weight: 700 !important;
+}
+
 /* ============================================
    RESET & BASE
    ============================================ */
