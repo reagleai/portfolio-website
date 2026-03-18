@@ -189,11 +189,6 @@ function initScrollAnimations() {
     const elements = document.querySelectorAll('.fade-in-up');
     if (!elements.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-        elements.forEach(el => el.classList.add('visible'));
-        return;
-    }
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -215,11 +210,6 @@ function initScrollAnimations() {
 function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-        counters.forEach(el => animateCounter(el));
-        return;
-    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -320,20 +310,16 @@ function initLifecycleDiagram() {
         setTimeout(() => startPulseAnimation(svg), (maxIdx + 1) * 200 + 400);
     }
 
-    if (!('IntersectionObserver' in window)) {
-        revealSequentially();
-    } else {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    revealSequentially();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.05 });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                revealSequentially();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
 
-        observer.observe(svg);
-    }
+    observer.observe(svg);
 
     // Tooltips
     const VB_W = 1400, TIP_W = 260, TIP_H = 28, TIP_PAD = 8;
