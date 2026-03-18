@@ -3,6 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LNCMH6HLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2LNCMH6HLH');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Ajay Sharma | AI Team Lead @ Turing</title>
     <meta name="description"
@@ -13,6 +22,12 @@
     <meta property="og:type" content="website">
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230A0F0D'/%3E%3Ctext x='32' y='38' text-anchor='middle' fill='%2300E5A0' font-family='sans-serif' font-weight='600' font-size='24'%3EAS%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="assets/ajay.webp" as="image" type="image/webp">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -63,7 +78,10 @@
                 <p class="fade-in-up">1.8 years evaluating how LLMs fail at scale. Now building products that account
                     for it from the first line of architecture.</p>
                 <div class="portrait-wrap fade-in-up">
-                    <img src="assets/ajay.jpg" alt="Ajay Sharma" class="portrait portrait--lg">
+                    <picture>
+                        <source srcset="assets/ajay.webp" type="image/webp">
+                        <img src="assets/ajay.jpg" alt="Ajay Sharma" class="portrait portrait--lg" loading="eager" width="400" height="500">
+                    </picture>
                 </div>
                 <div class="hero-image-placeholder fade-in-up">
                     <div class="lifecycle-scroll-wrap">
@@ -348,7 +366,7 @@
                     <div class="bento-tile fade-in-up">
                         <span class="bento-tile-label">Online</span>
                         <div class="bento-social-links">
-                            <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener"
+                            <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener noreferrer"
                                 class="bento-social-link" aria-label="LinkedIn">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -367,7 +385,7 @@
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
                             </a>
-                            <a href="https://github.com/reagleai/" target="_blank" rel="noopener"
+                            <a href="https://github.com/reagleai/" target="_blank" rel="noopener noreferrer"
                                 class="bento-social-link" aria-label="GitHub">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -480,8 +498,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="mailto:sharma.ajay.jobs@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/reagleai/" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/workwithajay/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/reagleai/" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
             <div class="footer-credit">
@@ -490,7 +508,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>
