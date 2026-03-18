@@ -3,7 +3,9 @@
    Design System & Global Styles
    ============================================ */
 
-/* ---- Fonts: Loaded in HTML for speed ---- */
+/* ---- Fonts: Fontshare + Google ---- */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================
    CSS CUSTOM PROPERTIES
@@ -222,7 +224,6 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    width: 100%;
 }
 
 body {
@@ -231,8 +232,6 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    width: 100%;
-    position: relative;
     min-height: 100vh;
 }
 
@@ -368,7 +367,7 @@ section {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    z-index: 99990 !important;
+    z-index: 1000;
     display: flex;
     align-items: center;
     transition: background var(--transition-base), box-shadow var(--transition-base);
@@ -1620,15 +1619,10 @@ section {
 
     .hero-visual {
         order: -1;
-        margin-top: 0;
-        margin-bottom: 8px;
-        width: 100%;
     }
 
     .hero-visual svg {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
+        max-width: 300px;
     }
 
     .approach-grid {
@@ -1638,14 +1632,6 @@ section {
 
     .experience-grid {
         grid-template-columns: 1fr;
-    }
-
-    .case-grid {
-        gap: 16px;
-    }
-
-    .bento-grid {
-        gap: 16px;
     }
 
     .testimonials-grid {
@@ -1700,32 +1686,8 @@ section {
         padding: 0 16px;
     }
 
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--bg-base);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
-        z-index: 99998 !important;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        font-size: 1.2rem;
-    }
-
     .nav-toggle {
         display: flex;
-        z-index: 99999 !important;
     }
 
     .hero {
@@ -1735,9 +1697,7 @@ section {
     }
 
     .hero-visual {
-        order: -1;
-        width: 100%;
-        max-width: 100%;
+        display: none;
     }
 
     .btn-group {
@@ -1788,6 +1748,15 @@ section {
         flex-direction: column;
         gap: 24px;
         text-align: center;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
     }
 
     .contact-cta {
@@ -2019,15 +1988,10 @@ section {
 
     .hero-visual {
         order: -1;
-        margin-top: 0;
-        margin-bottom: 8px;
-        width: 100%;
     }
 
     .hero-visual svg {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
+        max-width: 340px;
     }
 
     .btn-group {
@@ -2056,14 +2020,13 @@ section {
    ============================================ */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 40px;
+        --section-padding: 60px;
         --nav-height: 64px;
     }
 
     /* Nav */
     .nav-toggle {
         display: flex;
-        z-index: 99999 !important;
     }
 
     .nav-links {
@@ -2078,13 +2041,15 @@ section {
         align-items: center;
         gap: 28px;
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity var(--transition-base);
-        z-index: 99998 !important;
+        transition: opacity var(--transition-base), visibility var(--transition-base);
+        z-index: 999;
     }
 
     .nav-links.active {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
     }
 
@@ -2101,7 +2066,7 @@ section {
     .hero {
         min-height: auto;
         padding-top: calc(var(--nav-height) + 40px);
-        padding-bottom: 24px;
+        padding-bottom: 40px;
     }
 
     .hero-sub {
@@ -2115,14 +2080,6 @@ section {
     /* Grids */
     .experience-grid {
         grid-template-columns: 1fr;
-    }
-
-    .case-grid {
-        gap: 16px;
-    }
-
-    .bento-grid {
-        gap: 16px;
     }
 
     .approach-grid {
@@ -2157,6 +2114,11 @@ section {
         margin-top: 8px;
         opacity: 0.6;
     }
+
+    #lifecycle-svg,
+    .hero-pipeline-svg {
+        min-width: unset !important;
+    }
 }
 
 /* ============================================
@@ -2164,23 +2126,19 @@ section {
    ============================================ */
 @media (max-width: 480px) {
     :root {
-        --section-padding: 32px;
+        --section-padding: 48px;
     }
 
     .container {
-        padding: 0 16px;
+        padding: 0 20px;
     }
 
     h1 {
-        font-size: clamp(2rem, 8vw, 2.5rem);
-        line-height: 1.1;
-        word-break: break-word;
+        font-size: 2rem;
     }
 
     h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
-        line-height: 1.2;
-        word-break: break-word;
+        font-size: 1.6rem;
     }
 
     .btn {
@@ -2193,6 +2151,12 @@ section {
     .btn-group {
         flex-direction: column;
         align-items: stretch;
+        width: 100%;
+    }
+
+    .contact-cta-group {
+        align-items: stretch;
+        width: 100%;
     }
 
     .metric-value {
@@ -2262,6 +2226,10 @@ section {
         width: 34px;
         height: 34px;
         font-size: 0.95rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .metric-item {
