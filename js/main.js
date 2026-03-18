@@ -64,11 +64,13 @@ function setActiveNavLink() {
 function initMobileMenu() {
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
     if (!toggle || !navLinks) return;
 
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('active');
         navLinks.classList.toggle('active');
+        if (navbar) navbar.classList.toggle('menu-open');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
 
@@ -77,6 +79,7 @@ function initMobileMenu() {
         link.addEventListener('click', () => {
             toggle.classList.remove('active');
             navLinks.classList.remove('active');
+            if (navbar) navbar.classList.remove('menu-open');
             document.body.style.overflow = '';
         });
     });

@@ -1896,7 +1896,7 @@ section {
         left: 0;
         right: 0;
         bottom: auto;
-        background: var(--bg-card); /* Solid background instead of transparent overlay */
+        background: var(--bg-base);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -1908,13 +1908,19 @@ section {
         transition: opacity var(--transition-base), transform var(--transition-base);
         transform: translateY(-10px);
         z-index: 999;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
 
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
+    }
+
+    /* Ensure navbar has opaque bg when mobile menu is open */
+    .navbar:has(.nav-links.active),
+    .navbar.menu-open {
+        background: var(--bg-base);
     }
 
     .nav-links a {
