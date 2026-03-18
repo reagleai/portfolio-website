@@ -55,23 +55,113 @@
    LIGHT MODE THEME
    ============================================ */
 [data-theme="light"] {
-    --bg-base: #F5F2ED;
+    /* Base Color System */
+    --bg-base: #F8FAFC;
     --bg-card: #FFFFFF;
-    --bg-card-hover: #F0EDE7;
-    --accent: #3ECC90;
-    --accent-bright: #2FB87E;
-    --accent-dim: rgba(62, 204, 144, 0.1);
-    --text-primary: #2D2D2D;
-    --text-muted: #4B5563;
-    --text-heading: #0D0D0D;
-    --border-glow: rgba(0, 0, 0, 0.08);
-    --border-glow-hover: rgba(62, 204, 144, 0.3);
+    --bg-card-hover: #F1F5F9;
+    --border-glow: #E2E8F0;
+    
+    /* Text Hierarchy */
+    --text-heading: #0F172A;
+    --text-primary: #334155;
+    --text-muted: #64748B;
+    
+    /* Brand Accent System */
+    --accent: #22C55E;
+    --accent-bright: #16A34A;
+    --accent-dim: #DCFCE7;
+    --border-glow-hover: #86EFAC;
+    
+    /* Shadows */
     --shadow-glow: none;
-    --shadow-glow-hover: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
-    --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
-    --nav-scrolled-bg: rgba(245, 242, 237, 0.88);
-    --mobile-overlay-bg: rgba(245, 242, 237, 0.97);
+    --shadow-glow-hover: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.02);
+    --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.04);
+    
+    /* Nav */
+    --nav-scrolled-bg: rgba(248, 250, 252, 0.88);
+    --mobile-overlay-bg: rgba(248, 250, 252, 0.97);
+}
+
+/* Base text overrides for strict WCAG parsing in Light Mode */
+[data-theme="light"] p {
+    color: var(--text-primary);
+}
+
+/* Components: Cards */
+[data-theme="light"] .case-card,
+[data-theme="light"] .experience-card,
+[data-theme="light"] .approach-card,
+[data-theme="light"] .bento-tile {
+    border: 1px solid var(--border-glow);
+    background: var(--bg-card);
+    box-shadow: var(--card-shadow);
+}
+[data-theme="light"] .case-card:hover,
+[data-theme="light"] .experience-card:hover,
+[data-theme="light"] .approach-card:hover,
+[data-theme="light"] .bento-tile:hover {
+    border-color: var(--border-glow-hover);
+    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
+}
+
+/* Components: Tags & Pills */
+[data-theme="light"] .tag,
+[data-theme="light"] .bento-tag,
+[data-theme="light"] .metric-pill,
+[data-theme="light"] .skill-pill,
+[data-theme="light"] .sticker {
+    background: var(--accent-dim);
+    color: var(--accent-bright);
+    border: 1px solid var(--accent-dim) !important;
+    font-weight: 600;
+}
+
+/* Components: Buttons */
+[data-theme="light"] .btn--primary {
+    background: var(--accent);
+    color: #FFFFFF !important;
+    border-color: var(--accent);
+}
+[data-theme="light"] .btn--primary:hover {
+    background: var(--accent-bright);
+    border-color: var(--accent-bright);
+}
+[data-theme="light"] .btn--secondary {
+    background: transparent;
+    color: var(--accent-bright);
+    border: 1px solid var(--accent);
+}
+[data-theme="light"] .btn--secondary:hover {
+    background: var(--accent-dim);
+    color: var(--accent-bright) !important;
+    border-color: var(--accent-bright);
+}
+
+/* Diagrams */
+[data-theme="light"] #lifecycle-svg {
+    --lc-stroke: rgba(22, 163, 74, 0.8) !important;
+    --lc-text: var(--text-heading) !important;
+}
+
+[data-theme="light"] .hero-visual svg *[fill="#00E5A0"],
+[data-theme="light"] .case-card-visual svg *[fill="#00E5A0"],
+[data-theme="light"] .hero-visual svg *[fill="#4AE8B5"],
+[data-theme="light"] .case-card-visual svg *[fill="#4AE8B5"] {
+    fill: var(--accent-dim) !important;
+}
+
+[data-theme="light"] .hero-visual svg *[stroke="#00E5A0"],
+[data-theme="light"] .case-card-visual svg *[stroke="#00E5A0"],
+[data-theme="light"] .hero-visual svg *[stroke="#4AE8B5"],
+[data-theme="light"] .case-card-visual svg *[stroke="#4AE8B5"] {
+    stroke: var(--accent-bright) !important;
+    opacity: 0.8 !important;
+}
+
+[data-theme="light"] .case-card-visual svg text {
+    fill: var(--text-heading) !important;
+    opacity: 1 !important;
 }
 
 /* ============================================
