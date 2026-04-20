@@ -10,21 +10,46 @@
    ============================================ */
 :root {
     /* Colors — Dark Theme (default) */
+    /* Surfaces (Neutral Cool Slate) */
     --bg-base: #0B1215;
-    --bg-card: #111D1A;
-    --bg-card-hover: #162520;
+    --bg-surface: #151C21;
+    --bg-surface-elevated: #1D262D;
+    --bg-card: #151C21;
+    --bg-card-hover: #1D262D;
+
+    /* Brand Accent (Emerald Teal) */
     --accent: #3ECC90;
-    --accent-bright: #5EDDA8;
-    --accent-dim: rgba(62, 204, 144, 0.08);
-    --text-primary: #E8ECE9;
-    --text-muted: #6B8078;
-    --text-heading: #FFFFFF;
+    --accent-bright: #68DCA0;
+    --accent-dim: rgba(62, 204, 144, 0.12);
+    --accent-glow: rgba(62, 204, 144, 0.20);
+
+    /* Typography Hierarchy */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --text-faint: #334155;
+    --text-heading: #F8FAFC;
+
+    /* Utility & Semantic Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
     --border-glow: rgba(62, 204, 144, 0.15);
     --border-glow-hover: rgba(62, 204, 144, 0.32);
-    --shadow-glow: 0 0 20px rgba(62, 204, 144, 0.12);
+
+    /* Semantic Status */
+    --status-success: #10B981;
+    --status-warning: #F59E0B;
+    --status-error: #EF4444;
+    --status-info: #3B82F6;
+
+    /* Shadows */
+    --shadow-base: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 24px rgba(62, 204, 144, 0.12);
     --shadow-glow-hover: 0 0 30px rgba(62, 204, 144, 0.22);
     --card-shadow: none;
     --card-shadow-hover: none;
+
+    /* Nav */
     --nav-scrolled-bg: rgba(11, 18, 21, 0.88);
     --mobile-overlay-bg: rgba(11, 18, 21, 0.97);
 
@@ -59,61 +84,65 @@ html, body {
    LIGHT MODE THEME
    ============================================ */
 [data-theme="light"] {
-    /* Base Color System */
+    /* Surfaces */
     --bg-base: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #FFFFFF;
     --bg-card: #FFFFFF;
     --bg-card-hover: #F1F5F9;
-    --border-glow: #E2E8F0;
-    
+
+    /* Brand Accent (unified hue, darkened for contrast) */
+    --accent: #2BA96B;
+    --accent-bright: #3ECC90;
+    --accent-dim: rgba(43, 169, 107, 0.12);
+    --accent-glow: rgba(43, 169, 107, 0.20);
+
     /* Text Hierarchy */
     --text-heading: #0F172A;
-    --text-primary: #334155;
-    --text-muted: #64748B;
-    
-    /* Brand Accent System */
-    --accent: #22C55E;
-    --accent-bright: #16A34A;
-    --accent-dim: #DCFCE7;
-    --border-glow-hover: #86EFAC;
-    
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --text-faint: #CBD5E1;
+
+    /* Borders */
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.15);
+    --border-glow: rgba(0, 0, 0, 0.08);
+    --border-glow-hover: rgba(43, 169, 107, 0.40);
+
     /* Shadows */
+    --shadow-base: 0 4px 16px rgba(0, 0, 0, 0.04);
     --shadow-glow: none;
     --shadow-glow-hover: 0 4px 20px rgba(0, 0, 0, 0.05);
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.02);
     --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.04);
-    
+
     /* Nav */
     --nav-scrolled-bg: rgba(248, 250, 252, 0.88);
     --mobile-overlay-bg: rgba(248, 250, 252, 0.97);
 }
 
-/* Base text overrides for strict WCAG parsing in Light Mode */
+/* Base text overrides — body text maps to --text-secondary for readability */
 [data-theme="light"] p {
-    color: var(--text-primary);
+    color: var(--text-secondary);
 }
 
 /* Components: Cards */
 [data-theme="light"] .case-card,
-[data-theme="light"] .experience-card,
-[data-theme="light"] .approach-card,
-[data-theme="light"] .bento-tile {
-    border: 1px solid var(--border-glow);
-    background: var(--bg-card);
+[data-theme="light"] .experience-card {
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
     box-shadow: var(--card-shadow);
 }
 [data-theme="light"] .case-card:hover,
-[data-theme="light"] .experience-card:hover,
-[data-theme="light"] .approach-card:hover,
-[data-theme="light"] .bento-tile:hover {
-    border-color: var(--border-glow-hover);
+[data-theme="light"] .experience-card:hover {
+    border-color: var(--accent-glow);
     box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
 }
 
 /* Components: Tags & Pills */
 [data-theme="light"] .tag,
-[data-theme="light"] .bento-tag,
 [data-theme="light"] .metric-pill,
-[data-theme="light"] .skill-pill,
 [data-theme="light"] .sticker {
     background: var(--accent-dim);
     color: var(--accent-bright);
@@ -133,13 +162,13 @@ html, body {
 }
 [data-theme="light"] .btn--secondary {
     background: transparent;
-    color: var(--accent-bright);
-    border: 1px solid var(--accent);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
 }
 [data-theme="light"] .btn--secondary:hover {
     background: var(--accent-dim);
-    color: var(--accent-bright) !important;
-    border-color: var(--accent-bright);
+    color: var(--accent) !important;
+    border-color: var(--accent);
 }
 
 /* Diagrams */
@@ -313,7 +342,7 @@ h4 {
 }
 
 p {
-    color: var(--text-muted);
+    color: var(--text-secondary, var(--text-muted));
     font-size: 1rem;
     line-height: 1.7;
 }
@@ -535,13 +564,21 @@ section {
 .btn--secondary {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid var(--border-glow-hover);
+    border: 2px solid var(--border-subtle, var(--border-glow-hover));
 }
 
 .btn--secondary:hover {
+    background: var(--accent-dim);
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+/* Focus-visible rings for keyboard accessibility */
+.btn:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .btn-group {
@@ -624,7 +661,7 @@ section {
 
 .hero-sub {
     font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-    color: var(--text-muted);
+    color: var(--text-secondary, var(--text-muted));
     margin-top: 24px;
     margin-bottom: 32px;
     line-height: 1.7;
@@ -649,8 +686,8 @@ section {
     align-items: center;
     gap: 6px;
     padding: 10px 18px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
+    background: var(--bg-surface, var(--bg-card));
+    border: 1px solid var(--border-subtle, var(--border-glow));
     border-radius: var(--border-radius-sm);
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -684,9 +721,9 @@ section {
    ============================================ */
 .metrics-strip {
     padding: 48px 0;
-    background: var(--bg-card);
-    border-top: 1px solid var(--border-glow);
-    border-bottom: 1px solid var(--border-glow);
+    background: var(--bg-surface, var(--bg-card));
+    border-top: 1px solid var(--border-subtle, var(--border-glow));
+    border-bottom: 1px solid var(--border-subtle, var(--border-glow));
 }
 
 .metrics-grid {
@@ -721,8 +758,8 @@ section {
    CARDS — Case Study
    ============================================ */
 .case-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
+    background: var(--bg-surface, var(--bg-card));
+    border: 1px solid var(--border-subtle, var(--border-glow));
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
@@ -731,8 +768,8 @@ section {
 }
 
 .case-card:hover {
-    border-color: var(--border-glow-hover);
-    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
+    border-color: var(--accent-glow, var(--border-glow-hover));
+    box-shadow: var(--shadow-glow);
     transform: translateY(-4px);
 }
 
@@ -829,42 +866,7 @@ section {
     gap: 32px;
 }
 
-/* ============================================
-   APPROACH CARDS
-   ============================================ */
-.approach-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
 
-.approach-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    padding: 36px;
-    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
-    box-shadow: var(--card-shadow);
-}
-
-.approach-card:hover {
-    border-color: var(--border-glow-hover);
-    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
-    transform: translateY(-4px);
-}
-
-.approach-icon {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.approach-card h4 {
-    margin-bottom: 12px;
-}
-
-.approach-card p {
-    font-size: 0.9rem;
-}
 
 /* ============================================
    EXPERIENCE CARDS
@@ -876,8 +878,8 @@ section {
 }
 
 .experience-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
+    background: var(--bg-surface, var(--bg-card));
+    border: 1px solid var(--border-subtle, var(--border-glow));
     border-radius: var(--border-radius);
     padding: 40px;
     transition: border-color var(--transition-base), box-shadow var(--transition-base);
@@ -885,8 +887,8 @@ section {
 }
 
 .experience-card:hover {
-    border-color: var(--border-glow-hover);
-    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
+    border-color: var(--accent-glow, var(--border-glow-hover));
+    box-shadow: var(--shadow-glow);
 }
 
 .experience-card .tag {
@@ -924,7 +926,7 @@ section {
 
 .experience-card li {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-secondary, var(--text-muted));
     padding-left: 20px;
     position: relative;
     line-height: 1.6;
@@ -937,48 +939,6 @@ section {
     color: var(--accent);
 }
 
-/* ============================================
-   SKILLS & TOOLS
-   ============================================ */
-.skills-category {
-    margin-bottom: 32px;
-}
-
-.skills-category:last-child {
-    margin-bottom: 0;
-}
-
-.skills-category-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-}
-
-.skills-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-pill {
-    padding: 8px 18px;
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius-pill);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    transition: all var(--transition-base);
-}
-
-.skill-pill:hover {
-    border-color: var(--accent);
-    color: var(--bg-base);
-    background: var(--accent);
-    transform: translateY(-2px);
-}
 
 
 
@@ -1100,8 +1060,8 @@ section {
    CONTACT CTA
    ============================================ */
 .contact-cta {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
+    background: var(--bg-surface, var(--bg-card));
+    border: 1px solid var(--border-subtle, var(--border-glow));
     border-radius: var(--border-radius);
     padding: 80px 60px;
     text-align: center;
@@ -1122,26 +1082,7 @@ section {
     justify-content: center;
 }
 
-/* ============================================
-   CONTACT FORM
-   ============================================ */
 
-
-/* Contact — Minimal Layout */
-.contact-minimal {
-    min-height: calc(100vh - 200px);
-    display: flex;
-    align-items: center;
-    padding-top: calc(var(--nav-height) + 60px);
-    padding-bottom: 60px;
-}
-
-.contact-cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
 
 /* ============================================
    PORTRAIT — Circular Photo
@@ -1155,233 +1096,11 @@ section {
     box-shadow: 0 0 16px rgba(0, 229, 160, 0.2);
 }
 
-.portrait--lg {
-    width: 240px;
-    height: 240px;
-}
-
-.portrait-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-/* ============================================
-   BENTO GRID (About Page)
-   ============================================ */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(180px, auto);
-    gap: 16px;
-}
-
-.bento-tile {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    padding: 28px;
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: var(--card-shadow);
-}
-
-.bento-tile:hover {
-    border-color: var(--border-glow-hover);
-    box-shadow: var(--shadow-glow-hover, var(--card-shadow-hover));
-}
-
-.bento-tile-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 12px;
-}
-
-.bento-tile h4 {
-    font-size: 1rem;
-    margin-bottom: 8px;
-}
-
-.bento-tile p {
-    font-size: 0.85rem;
-}
-
-.bento-tile--wide {
-    grid-column: span 2;
-}
-
-.bento-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.bento-tag {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    padding: 4px 10px;
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius-pill);
-}
-
-.bento-social-links {
-    display: flex;
-    gap: 12px;
-}
-
-.bento-social-link {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--border-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    transition: all var(--transition-base);
-}
-
-.bento-social-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-dim);
-}
-
-/* ============================================
-   EDUCATION
-   ============================================ */
-.education-list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.education-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    padding: 32px 40px;
-}
-
-.education-item h4 {
-    margin-bottom: 4px;
-}
-
-.education-item .institution {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    margin-bottom: 4px;
-}
-
-.education-item .year {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
 
 
 
-/* ============================================
-   ABOUT PAGE HERO
-   ============================================ */
-.about-hero {
-    padding-top: calc(var(--nav-height) + 80px);
-    padding-bottom: 60px;
-}
 
-.about-hero h1 {
-    max-width: 700px;
-    margin-bottom: 20px;
-}
 
-.about-hero p {
-    max-width: 600px;
-    font-size: 1.1rem;
-}
-
-.hero-image-placeholder {
-    margin-top: 48px;
-    width: 100%;
-    height: auto;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glow);
-    border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-    position: relative;
-    padding: 32px;
-}
-
-.hero-image-placeholder svg {
-    width: 100%;
-    height: auto;
-    opacity: 1;
-}
-
-/* Story Section */
-.story-section {
-    max-width: 740px;
-}
-
-.story-section p {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    margin-bottom: 28px;
-    color: var(--text-primary);
-    opacity: 0.85;
-}
-
-.story-section p:first-of-type::first-letter {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    float: left;
-    line-height: 1;
-    margin-right: 12px;
-    margin-top: 4px;
-}
-
-/* ============================================
-   WORK PAGE HEADER
-   ============================================ */
-.page-header {
-    padding-top: calc(var(--nav-height) + 80px);
-    padding-bottom: 60px;
-}
-
-.page-header h1 {
-    margin-bottom: 16px;
-}
-
-.page-header p {
-    max-width: 600px;
-    font-size: 1.05rem;
-}
-
-/* Work cards expanded */
-.work-cards-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.case-card--full .case-card-content {
-    padding: 48px;
-}
-
-.case-card--full .btn {
-    margin-top: 12px;
-    width: fit-content;
-}
 
 /* ============================================
    FOOTER
