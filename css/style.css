@@ -320,7 +320,9 @@ h5,
 h6 {
     font-family: var(--font-heading);
     color: var(--text-heading);
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    word-spacing: 0.1em;
     font-style: normal;
     line-height: 1.15;
 }
@@ -423,9 +425,10 @@ section {
 .nav-logo {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--accent);
-    letter-spacing: -1px;
+    letter-spacing: 0.5px;
+    word-spacing: 0.1em;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -740,7 +743,9 @@ a:focus-visible {
 .metric-value {
     font-family: var(--font-heading);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    word-spacing: 0.1em;
     font-style: normal;
     color: var(--accent);
     margin-bottom: 4px;
@@ -1124,7 +1129,9 @@ a:focus-visible {
 
 .footer-name {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    word-spacing: 0.1em;
     font-size: 1rem;
     color: var(--text-primary);
 }
